@@ -1,0 +1,52 @@
+.empresas_especiales_mobile {
+  display: flex;
+  flex-direction: column;
+}
+.empresas_especiales_desktop {
+  display: none;
+}
+.empresas_especiales {
+  background-image: url("/images/IMAGENES_TAMAÑO/MOBILE/HOME_EMPRESAS_ESPECIALES_MOBILE.jpg");
+  display: flex;
+  padding: 60px 30px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.empresas_especiales_box .feature {
+  padding: 20px;
+  max-width: 350px;
+  min-width: 100px;
+}
+
+/* A partir de M */
+@media all and (min-width: 768px) {
+  .empresas_especiales_mobile {
+    display: none;
+  }
+  .empresas_especiales_desktop {
+    display: flex;
+  }
+
+  .empresas_especiales {
+    background-image: url("/images/IMAGENES_TAMAÑO/MOBILE/HOME_EMPRESAS_ESPECIALES_MOBILE.jpg");
+    width: 100%;
+  }
+
+  .empresas_especiales_box {
+    margin-right: 10%;
+    margin-left: 35%;
+  }
+  .empresas_especiales_box .features {
+    text-align: left !important;
+  }
+
+  .empresas_especiales_box .feature {
+    max-width: 250px;
+  }
+  .empresas_especiales_box .feature .title3 {
+    min-height: 88px;
+    display: flex;
+  }
+}

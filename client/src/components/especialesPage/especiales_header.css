@@ -1,0 +1,21 @@
+.especiales_header {
+  background-image: url("/images/IMAGENES_TAMAÑO/MOBILE/ESPECIALES_MOBILE.jpg");
+  height: 50vh;
+  padding: 10px 30px;
+  color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.especiales_header-box {
+  max-width: 550px;
+}
+
+/* A partir de M */
+@media all and (min-width: 768px) {
+  .especiales_header {
+    background-image: url("/images/IMAGENES_TAMAÑO/DESKTOP/VENTAJAS.jpg");
+    padding-left: 20%;
+  }
+}

@@ -1,0 +1,54 @@
+.home_especiales_mobile {
+  display: flex;
+  flex-direction: column;
+}
+.home_especiales_desktop {
+  display: none;
+}
+.home_especiales {
+  background-image: url("/images/IMAGENES_TAMAÑO/MOBILE/HOME_ESPECIALES_MOBILE.jpg");
+  height: 70vh;
+  display: flex;
+  padding: 60px 30px;
+  color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: left;
+}
+
+.home_especiales_box {
+  margin-left: 35%;
+}
+
+.home_especiales_box .feature {
+  padding: 20px;
+  max-width: 350px;
+  min-width: 100px;
+}
+
+/* A partir de M */
+@media all and (min-width: 768px) {
+  .home_especiales_mobile {
+    display: none;
+  }
+  .home_especiales_desktop {
+    display: flex;
+  }
+  .home_especiales_box {
+    margin-right: 10%;
+  }
+  .home_especiales_box .features {
+    text-align: left !important;
+  }
+
+  .home_especiales_box .feature {
+    max-width: 250px;
+  }
+  .feature .title3 {
+    min-height: 88px;
+    display: flex;
+  }
+  .home_especiales {
+    height: auto;
+  }
+}

@@ -1,0 +1,34 @@
+.footer {
+  padding: 60px 0px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.column {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.separate {
+  display: none;
+}
+
+/* A partir de M */
+@media all and (min-width: 768px) {
+  .footer {
+    flex-direction: column;
+  }
+  .column {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
+  .column div {
+    padding: 0px 7px;
+  }
+  .separate {
+    display: flex;
+  }
+}

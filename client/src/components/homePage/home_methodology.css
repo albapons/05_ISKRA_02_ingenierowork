@@ -1,0 +1,28 @@
+.home_methodology {
+  padding: 60px 30px;
+  justify-content: center;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.feature {
+  padding: 20px;
+  max-width: 350px;
+  min-width: 100px;
+}
+
+/* A partir de M */
+@media all and (min-width: 768px) {
+  .feature {
+    padding: 10px;
+  }
+  .feature .title3 {
+    min-height: 88px;
+    display: flex;
+    justify-content: center;
+  }
+}

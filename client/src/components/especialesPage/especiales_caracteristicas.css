@@ -1,0 +1,25 @@
+.especiales_caracteristicas {
+  background-color: #1697ef;
+  color: white;
+  padding: 60px 30px;
+}
+
+.especiales_caracteristicas .feature {
+  padding: 20px 0px;
+  max-width: none;
+}
+
+/* A partir de M */
+@media all and (min-width: 768px) {
+  .especiales_caracteristicas .feature {
+    padding: 20px;
+    max-width: 350px;
+    min-width: 100px;
+  }
+
+  .feature .title2 {
+    min-height: 88px;
+    display: flex;
+    padding-bottom: 10px;
+  }
+}

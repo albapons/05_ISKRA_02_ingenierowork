@@ -1,0 +1,157 @@
+/* UTILS */
+.blue {
+  color: #1697ef;
+}
+
+.bgBlue {
+  background-color: #1697ef;
+  color: white;
+}
+
+.socialMediaDesktop {
+  background-color: #1697ef;
+  color: white;
+  border-radius: 50%;
+  padding: 8px;
+  width: 32px !important;
+  height: 32px;
+}
+
+.iconoFeature {
+  height: auto;
+  margin: 10px;
+}
+
+/* FONTS */
+.title1 {
+  font-family: "Roboto Slab", serif;
+  line-height: 1;
+  font-size: 43px;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding: 7px 0px;
+}
+
+.title2 {
+  font-family: "Roboto Slab", serif;
+  line-height: 1;
+  font-size: 40px;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding: 7px 0px;
+}
+
+.title2thin {
+  font-family: "Roboto Slab", serif;
+  line-height: 1;
+  font-size: 36px;
+  font-weight: 300;
+  text-transform: uppercase;
+  padding: 7px 0px;
+}
+
+.title3 {
+  font-family: "Roboto Slab", serif;
+  line-height: 1;
+  font-size: 28px;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding: 7px 0px;
+}
+
+.title3thin {
+  font-family: "Roboto Slab", serif;
+  line-height: 1;
+  font-size: 26px;
+  font-weight: 300;
+  padding: 7px 0px;
+}
+
+.title4 {
+  font-family: "Roboto Slab", serif;
+  line-height: 1;
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding: 7px 0px;
+}
+.title5 {
+  font-family: "Roboto Slab", serif;
+  line-height: 1;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding: 7px 0px;
+}
+
+.subtitle1 {
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.subtitle2 {
+  font-size: 14px;
+  line-height: 1;
+  font-weight: normal;
+}
+
+.underlined {
+  text-decoration: underline;
+}
+
+/* BUTTONS */
+.buttonW {
+  color: #1697ef;
+  background-color: white;
+  padding: 10px 50px;
+  border: none;
+  font-weight: 600;
+  margin-top: 25px;
+}
+
+.buttonWR {
+  color: white;
+  background-color: #1697ef;
+  border: none;
+  border-radius: 50%;
+  font-weight: 600;
+  width: 50px;
+  height: 50px;
+}
+
+.buttonB {
+  background-color: #1697ef;
+  color: white;
+  padding: 10px 50px;
+  border: none;
+  font-weight: 600;
+  margin-top: 25px;
+}
+
+.buttonBsmall {
+  background-color: #1697ef;
+  color: white;
+  font-size: 14px;
+  padding: 6px 30px;
+  border: none;
+  font-weight: 600;
+}
+
+/*? XULETA PER CSS RESPONSIVE */
+
+/** Móviles en vertical (S) */
+/* Diseño estándar */
+
+/** Móviles en horizontal o tablets en vertical (M) */
+/* @media all and (min-width: 768px) {} */
+
+/** Tablets en horizonal y escritorios normales (L) */
+@media all and (min-width: 1024px) {
+  .iconoFeature {
+    height: auto;
+  }
+}
+
+/** Escritorios muy anchos (XL) */
+/* @media all and (min-width: 1200px) {} */
+/* A partir de M */

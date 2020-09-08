@@ -1,0 +1,27 @@
+.especiales_diferencias {
+  background-color: whitesmoke;
+  padding: 30px 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.especiales_diferencias .header {
+  padding: 30px 0px;
+  padding-left: 38px;
+}
+
+.especiales_diferencias_box {
+  max-width: none;
+  padding: 20px;
+}
+
+/* A partir de M */
+@media all and (min-width: 768px) {
+  .especiales_diferencias_box {
+    max-width: 390px;
+  }
+  .especiales_diferencias .header {
+    padding-left: 32px;
+  }
+}

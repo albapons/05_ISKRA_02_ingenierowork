@@ -1,0 +1,22 @@
+.home_header {
+  background-image: url("/images/IMAGENES_TAMAÑO/MOBILE/HOME_SLIDER_MOBILE.jpg");
+  height: 100vh;
+  padding: 60px 30px;
+  color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.home_header_box {
+  max-width: 550px;
+}
+
+/* A partir de M */
+@media all and (min-width: 768px) {
+  .home_header {
+    padding-left: 20%;
+    background-image: url("/images/IMAGENES_TAMAÑO/DESKTOP/HOME_SLIDER.jpg");
+    height: 60vh;
+  }
+}

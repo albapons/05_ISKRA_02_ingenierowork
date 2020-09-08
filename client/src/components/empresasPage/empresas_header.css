@@ -1,0 +1,22 @@
+.empresas_header {
+  background-image: url("/images/IMAGENES_TAMAÑO/MOBILE/HOME_EMPRESAS_SLIDER_MOBILE.jpg");
+  padding: 60px 30px;
+  height: 100vh;
+  color: #1697ef;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.empresas_header_box {
+  max-width: 550px;
+}
+
+/* A partir de M */
+@media all and (min-width: 768px) {
+  .empresas_header {
+    background-image: url("/images/IMAGENES_TAMAÑO/DESKTOP/HOME_EMPRESAS_SLIDER.jpg");
+    padding-left: 20%;
+    height: 70vh;
+  }
+}
