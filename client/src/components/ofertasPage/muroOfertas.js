@@ -2,30 +2,31 @@ import React, { useEffect, useState } from "react";
 import api from "../utils/api/api";
 import "./ofertas.css";
 
-export default function Ofertas({
-  baseDades,
-  filtroSectores,
-  filtroContratos,
-}) {
+export default function Ofertas({ baseDades }) {
+  let [newBaseDades, setNewBaseDades] = useState([]);
   let [orden, setOrden] = useState("");
-  let [newBaseDades, setNewBaseDades] = useState(baseDades);
+
+  useEffect(() => {
+    getList(orden);
+  }, [orden]);
 
   const getList = () => {
     api.getList().then((response) => {
+      // console.log(response.data);
       setNewBaseDades(response.data);
     });
   };
 
-  // useEffect(getList(), []^`ˆ
   const ordenar = (e) => {
-    console.log(e);
-    // const orden = e.target.value;
-    // console.log(orden);
-    // getList();
+    setOrden(e.target.value);
+    console.log(`Orden in the frontend is ${orden}`);
+    console.log(typeof orden); // Empty string
+    getList(orden);
   };
 
   return (
     <div className="ofertas">
+      {/* {console.log(orden)} */}
       <div className="resultados">
         <div className="row subtitle1">
           <div className="col">
@@ -46,7 +47,7 @@ export default function Ofertas({
         </div>
 
         {newBaseDades.map((e) => (
-          <div className="oferta">
+          <div className="oferta" key={e.id}>
             <div className="row">
               <div className="col">
                 <div className="title3 blue">{e.puesto}</div>
