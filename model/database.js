@@ -46,6 +46,7 @@ con.connect(function (err) {
     
     INSERT INTO ofertas (puesto, lugar, publicación, finalización, contrato, sector, descripción) 
     VALUES ("Director IT", "Sabadell", "2020-09-23", "2020-12-30", "Autónomo", "Construcción - Edificación", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus erat sapien, ultrices nec dolor ac, cursus semper lacus. Nunc sit amet volutpat libero, at semper tellus. Proin non lectus erat. Curabitur vulputate tellus et sollicitudin fermentum.");
+    
     INSERT INTO ofertas (puesto, lugar, publicación, finalización, contrato, sector, descripción) 
     VALUES ("Front-End Developer", "Manresa", "2020-09-25", "2020-12-30", "Prácticas", "Informática - Computación", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus erat sapien, ultrices nec dolor ac, cursus semper lacus. Nunc sit amet volutpat libero, at semper tellus. Proin non lectus erat. Curabitur vulputate tellus et sollicitudin fermentum.");
     
