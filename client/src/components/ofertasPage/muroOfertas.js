@@ -1,32 +1,36 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import api from "../utils/api/api";
 import "./ofertas.css";
 
 export default function Ofertas({ baseDades }) {
   let [newBaseDades, setNewBaseDades] = useState([]);
   let [orden, setOrden] = useState("");
+  const { search } = useLocation("");
+  let history = useHistory();
 
-  useEffect(() => {
-    getList(orden);
-  }, [orden]);
-
-  const getList = () => {
-    api.getList().then((response) => {
-      // console.log(response.data);
+  const getList = (orden) => {
+    history.push(`/ofertas/?orden=${orden}`);
+    setOrden(orden);
+    api.getList(search).then((response) => {
       setNewBaseDades(response.data);
     });
   };
 
   const ordenar = (e) => {
-    setOrden(e.target.value);
-    console.log(`Orden in the frontend is ${orden}`);
-    console.log(typeof orden); // Empty string
-    getList(orden);
+    if (e.target.value === "defaultValue") {
+      return getList("id");
+    }
+    return getList(e.target.value);
   };
+
+  useEffect(() => {
+    getList(orden);
+  }, [search]);
 
   return (
     <div className="ofertas">
-      {/* {console.log(orden)} */}
       <div className="resultados">
         <div className="row subtitle1">
           <div className="col">
