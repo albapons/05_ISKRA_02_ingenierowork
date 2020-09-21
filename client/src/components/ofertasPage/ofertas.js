@@ -11,8 +11,6 @@ export default function Ofertas() {
   let [filtroSectores, setFiltroSectores] = useState([]);
   let [filtroContratos, setFiltroContratos] = useState([]);
 
-  // useEffect(() => {}, [baseDades]);
-
   //* SELECCIONAR TODO
   const seleccionarTodo = (e) => {
     // console.log(e.target.id);
@@ -25,6 +23,7 @@ export default function Ofertas() {
         }
       }
       document.getElementById(e.target.id).innerHTML = "Desmarcar todas";
+      //! Fer que quan tot estigui marcat filtroSectores / filtroContratos tingui un unic valor "ALL"
     } else if (
       document.getElementById(e.target.id).innerHTML === "Desmarcar todas"
     ) {
@@ -34,6 +33,7 @@ export default function Ofertas() {
         }
       }
       document.getElementById(e.target.id).innerHTML = "Marcar todas";
+      //! Fer que quan tot estigui marcat filtroSectores / filtroContratos tingui un unic valor "ALL"
     }
   };
 
@@ -44,7 +44,7 @@ export default function Ofertas() {
       : setFiltroSectores(
           filtroSectores.filter((item) => item !== e.target.id)
         );
-    console.log(filtroSectores);
+    // console.log(filtroSectores);
   };
 
   const filtrarContratos = (e) => {
@@ -53,7 +53,7 @@ export default function Ofertas() {
       : setFiltroContratos(
           filtroContratos.filter((item) => item !== e.target.id)
         );
-    console.log(filtroContratos);
+    // console.log(filtroContratos);
   };
 
   return (

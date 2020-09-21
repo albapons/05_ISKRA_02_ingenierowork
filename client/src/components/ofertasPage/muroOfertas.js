@@ -1,17 +1,37 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import { useLocation, useParams, useHistory } from "react-router-dom";
 import api from "../utils/api/api";
 import "./ofertas.css";
 
-export default function Ofertas({ baseDades }) {
+export default function Ofertas({
+  baseDades,
+  filtroSectores,
+  filtroContratos,
+}) {
   let [newBaseDades, setNewBaseDades] = useState([]);
-  let [orden, setOrden] = useState("");
+  let [orden, setOrden] = useState();
   const { search } = useLocation("");
   let history = useHistory();
 
   const getList = (orden) => {
-    history.push(`/ofertas/?orden=${orden}`);
+    let sector = filtroSectores.toString().replaceAll(" - ", "");
+    let contrato = filtroContratos.toString().replaceAll(" - ", "");
+
+    // Si hi ha opcions en els dos
+    if (sector && contrato) {
+      if (orden !== "publicación" && orden !== "finalización") setOrden("id");
+      //! orden === undefined at URL
+      // history.push(`?orden=${orden}&sector=${sector}&contrato=${contrato}`);
+      // Si només hi ha opció al sector o si hi ha opció al sector i contrato === ALL
+    } else if (sector || (sector && filtroContratos === "ALL"))
+      history.push(`?orden=${orden}&sector=${sector}`);
+    // Si només hi ha opció a contrato o si hi ha opció a contrato i sector === ALL
+    else if (contrato || (contrato && filtroSectores === "ALL"))
+      history.push(`?orden=${orden}&contrato=${contrato}`);
+    // Si (no hi ha opció seleccionada de contrato ni sector) o totes les opcions estan seleccionades === ALL
+    else if (orden && orden !== "id") history.push(`?orden=${orden}`);
+    else history.push(`/ofertas`);
+
     setOrden(orden);
     api.getList(search).then((response) => {
       setNewBaseDades(response.data);
@@ -20,14 +40,14 @@ export default function Ofertas({ baseDades }) {
 
   const ordenar = (e) => {
     if (e.target.value === "defaultValue") {
-      return getList("id");
+      return getList("");
     }
     return getList(e.target.value);
   };
 
   useEffect(() => {
     getList(orden);
-  }, [search]);
+  }, [search, filtroSectores, filtroContratos]);
 
   return (
     <div className="ofertas">
