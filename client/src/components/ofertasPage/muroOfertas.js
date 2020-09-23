@@ -19,20 +19,25 @@ export default function Ofertas({
 
     // Si hi ha opcions en els dos
     if (sector && contrato) {
-      if (orden !== "publicación" && orden !== "finalización") setOrden("id");
-      //! orden === undefined at URL
-      // history.push(`?orden=${orden}&sector=${sector}&contrato=${contrato}`);
+      if (orden !== "publicación" && orden !== "finalización") orden = "id";
+      history.push(`?orden=${orden}&sector=${sector}&contrato=${contrato}`);
+
       // Si només hi ha opció al sector o si hi ha opció al sector i contrato === ALL
-    } else if (sector || (sector && filtroContratos === "ALL"))
+    } else if (sector || (sector && filtroContratos === "ALL")) {
+      if (!orden) orden = "id";
       history.push(`?orden=${orden}&sector=${sector}`);
-    // Si només hi ha opció a contrato o si hi ha opció a contrato i sector === ALL
-    else if (contrato || (contrato && filtroSectores === "ALL"))
+
+      // Si només hi ha opció a contrato o si hi ha opció a contrato i sector === ALL
+    } else if (contrato || (contrato && filtroSectores === "ALL")) {
+      if (!orden) orden = "id";
       history.push(`?orden=${orden}&contrato=${contrato}`);
-    // Si (no hi ha opció seleccionada de contrato ni sector) o totes les opcions estan seleccionades === ALL
-    else if (orden && orden !== "id") history.push(`?orden=${orden}`);
+
+      // Si (no hi ha opció seleccionada de contrato ni sector) o totes les opcions estan seleccionades === ALL
+    } else if (orden && orden !== "id") history.push(`?orden=${orden}`);
     else history.push(`/ofertas`);
 
     setOrden(orden);
+
     api.getList(search).then((response) => {
       setNewBaseDades(response.data);
     });

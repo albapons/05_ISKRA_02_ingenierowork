@@ -36,7 +36,7 @@ con.connect(function (err) {
     VALUES ("Design Engineer", "Manresa", "2020-06-28", "2020-09-31", "Indefinido", "Automoción", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus erat sapien, ultrices nec dolor ac, cursus semper lacus. Nunc sit amet volutpat libero, at semper tellus. Proin non lectus erat. Curabitur vulputate tellus et sollicitudin fermentum.");
     
     INSERT INTO ofertas (puesto, lugar, publicación, finalización, contrato, sector, descripción) 
-    VALUES ("General Engineer", "Barcelona", "2020-07-20", "2020-10-31", "Indefinido", "Naval", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus erat sapien, ultrices nec dolor ac, cursus semper lacus. Nunc sit amet volutpat libero, at semper tellus. Proin non lectus erat. Curabitur vulputate tellus et sollicitudin fermentum.");
+    VALUES ("General Engineer", "Barcelona", "2020-07-20", "2020-10-31", "Autónomo", "Naval", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus erat sapien, ultrices nec dolor ac, cursus semper lacus. Nunc sit amet volutpat libero, at semper tellus. Proin non lectus erat. Curabitur vulputate tellus et sollicitudin fermentum.");
     
     INSERT INTO ofertas (puesto, lugar, publicación, finalización, contrato, sector, descripción) 
     VALUES ("Engineer-in-Training", "Sabadell", "2020-09-01", "2020-11-31", "Prácticas", "Ferroviario", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus erat sapien, ultrices nec dolor ac, cursus semper lacus. Nunc sit amet volutpat libero, at semper tellus. Proin non lectus erat. Curabitur vulputate tellus et sollicitudin fermentum.");
@@ -63,7 +63,7 @@ con.connect(function (err) {
     VALUES ("Aerospace Engineer, Junior", "Barcelona", "2020-06-17", "2020-09-13", "Prácticas", "Aeroespacial - Aeronáutica", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus erat sapien, ultrices nec dolor ac, cursus semper lacus. Nunc sit amet volutpat libero, at semper tellus. Proin non lectus erat. Curabitur vulputate tellus et sollicitudin fermentum.");
     
     INSERT INTO ofertas (puesto, lugar, publicación, finalización, contrato, sector, descripción) 
-    VALUES ("Mechanical Engineer", "Manresa", "2020-06-28", "2020-09-31", "Indefinido", "Automoción", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus erat sapien, ultrices nec dolor ac, cursus semper lacus. Nunc sit amet volutpat libero, at semper tellus. Proin non lectus erat. Curabitur vulputate tellus et sollicitudin fermentum.");
+    VALUES ("Mechanical Engineer", "Manresa", "2020-06-28", "2020-09-31", "Prácticas", "Automoción", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus erat sapien, ultrices nec dolor ac, cursus semper lacus. Nunc sit amet volutpat libero, at semper tellus. Proin non lectus erat. Curabitur vulputate tellus et sollicitudin fermentum.");
     
     INSERT INTO ofertas (puesto, lugar, publicación, finalización, contrato, sector, descripción) 
     VALUES ("Machine Design Engineer", "Barcelona", "2020-07-20", "2020-10-31", "Indefinido", "Naval", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus erat sapien, ultrices nec dolor ac, cursus semper lacus. Nunc sit amet volutpat libero, at semper tellus. Proin non lectus erat. Curabitur vulputate tellus et sollicitudin fermentum.");
