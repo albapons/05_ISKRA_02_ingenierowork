@@ -14,9 +14,11 @@ export default function Ofertas({
   let history = useHistory();
 
   const getList = (orden) => {
-    let sector = filtroSectores.toString().replaceAll(" - ", "");
-    let contrato = filtroContratos.toString().replaceAll(" - ", "");
+    let sector = filtroSectores.toString().replaceAll(" - ", "-");
+    let contrato = filtroContratos.toString();
 
+    // let sector = filtroSectores.toString();
+    // let contrato = filtroContratos.toString();
     // Si hi ha opcions en els dos
     if (sector && contrato) {
       if (orden !== "publicación" && orden !== "finalización") orden = "id";
