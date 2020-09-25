@@ -39,6 +39,7 @@ export default function Ofertas({
     setOrden(orden);
 
     api.getList(search).then((response) => {
+      console.log(response.data);
       setNewBaseDades(response.data);
     });
   };
@@ -52,7 +53,7 @@ export default function Ofertas({
 
   useEffect(() => {
     getList(orden);
-  }, [search, filtroSectores, filtroContratos]);
+  }, [orden, search, filtroSectores, filtroContratos]);
 
   return (
     <div className="ofertas">
@@ -60,7 +61,7 @@ export default function Ofertas({
         <div className="row subtitle1">
           <div className="col">
             <div className="title5 blue">OFERTAS</div>
-            <div>{baseDades.length} Ofertas de empleo</div>
+            <div>{newBaseDades.length} Ofertas de empleo</div>
           </div>
           <div className="col">
             <div>Ordenar por:</div>
