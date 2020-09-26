@@ -44,7 +44,14 @@ export default class footer extends Component {
           <span className="separate font-weight-bold">|</span>
           <div>Sobre IngenieroWork</div>
           <span className="separate font-weight-bold">|</span>
-          <div>Contactar</div>
+          <div>
+            <Link
+              style={{ color: "inherit", textDecoration: "inherit" }}
+              to="contacto"
+            >
+              Contactar
+            </Link>
+          </div>
         </div>
 
         <div className="column subtitle1 underlined py-3">

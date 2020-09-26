@@ -8,6 +8,9 @@ import Ofertas from "./components/ofertasPage/ofertas";
 import Home from "./components/homePage/home";
 import Footer from "./components/utils/footer";
 import PageError from "./components/utils/pageError";
+import Contact from "./components/utils/contact";
+import LogIn from "./components/utils/login";
+import Register from "./components/utils/register";
 
 export default class App extends Component {
   render() {
@@ -25,8 +28,15 @@ export default class App extends Component {
             <Route path="/ofertas">
               <Ofertas />
             </Route>
-            <Route path="/login">{/* <LogIn /> */}</Route>
-            <Route path="/register">{/* <RegisterForm /> */}</Route>
+            <Route path="/login">
+              <LogIn />
+            </Route>
+            <Route path="/register">
+              <Register />
+            </Route>
+            <Route path="/contacto">
+              <Contact />
+            </Route>
             <Route path="/home">
               <Home />
             </Route>

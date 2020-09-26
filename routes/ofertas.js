@@ -44,7 +44,7 @@ router.get("/", function (req, res) {
     query = `SELECT * FROM ofertas ORDER BY ${orden};`;
   }
 
-  console.log(query);
+  // console.log(query);
 
   db(query)
     .then((results) => {

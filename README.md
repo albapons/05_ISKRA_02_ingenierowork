@@ -11,9 +11,13 @@
 
 ### Libraries Installed
 
-- Bootstrap React: `npm install react-bootstrap bootstrap` (`https://react-bootstrap.github.io/getting-started/introduction`)
-- React Router: `npm install react-router-dom`
-- REACT- SVG: `npm i react-svg`
+- For the backend:
+
+  - Bootstrap React: `npm install react-bootstrap bootstrap` (`https://react-bootstrap.github.io/getting-started/introduction`)
+  - React Router: `npm install react-router-dom`
+  - REACT - SVG: `npm i react-svg`
+  - MDBReact: `npm i mdbreact`
+  - MDBootstrap: `mdbootstrap`
 
 - For the backend:
   - Express: `npx express-generator`
@@ -24,13 +28,12 @@
 
 #### FALTA FER:
 
+- Arreglar filtres MARCAR / DESMARCAR TODAS
 - Arreglar NAVBAR logo resize SVG
 - Arreglar SPONSORS logo resize SVG
+- repassar responsive
+- repassar disseny, imatges
+- Styling CONTACTE + REGISTER + LOGIN
+- Provar autenticació a REGISTER + LOGIN
 
-- Acabar OFERTAS:
-
-  - Lògica per filtres
-  - Lògica per ordenar ofertes (refresh))
-  - Paginate: (`https://www.thatsoftwaredude.com/content/6125/how-to-paginate-through-a-collection-in-javascript`)
-
-- Inventar REGISTER + LOGIN + CONTACTE
+- Acabar OFERTAS: Paginate: (`https://www.thatsoftwaredude.com/content/6125/how-to-paginate-through-a-collection-in-javascript`)

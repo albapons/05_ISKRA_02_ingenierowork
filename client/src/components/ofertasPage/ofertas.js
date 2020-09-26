@@ -13,7 +13,7 @@ export default function Ofertas() {
 
   //* SELECCIONAR TODO
   const seleccionarTodo = (e) => {
-    // console.log(e.target.id);
+    console.log(e.target.id);
     var checkboxes = document.getElementsByClassName(e.target.id);
     // console.log(checkboxes);
     if (document.getElementById(e.target.id).innerHTML === "Marcar todas") {

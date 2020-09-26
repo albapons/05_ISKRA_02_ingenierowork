@@ -41,7 +41,7 @@ export default class navBar extends Component {
                   <div className="subtitle1">Empresas </div>
                 </Link>
                 <Link
-                  to="/"
+                  to="/contacto"
                   style={{ color: "inherit", textDecoration: "inherit" }}
                 >
                   <div className="subtitle1">Contacto </div>
