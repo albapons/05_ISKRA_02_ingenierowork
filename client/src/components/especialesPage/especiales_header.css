@@ -18,4 +18,7 @@
     background-image: url("/images/IMAGENES_TAMAÑO/DESKTOP/VENTAJAS.jpg");
     padding-left: 20%;
   }
+  .especiales_header-box {
+    max-width: 450px;
+  }
 }

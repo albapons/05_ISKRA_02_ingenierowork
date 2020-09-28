@@ -4,7 +4,7 @@ import "./App.css";
 import NavBar from "./components/utils/navBar";
 import Empresas from "./components/empresasPage/empresas";
 import Especiales from "./components/especialesPage/especiales";
-import Ofertas from "./components/ofertasPage/ofertas";
+import Filtros from "./components/ofertasPage/filtros";
 import Home from "./components/homePage/home";
 import Footer from "./components/utils/footer";
 import PageError from "./components/utils/pageError";
@@ -26,7 +26,7 @@ export default class App extends Component {
               <Especiales />
             </Route>
             <Route path="/ofertas">
-              <Ofertas />
+              <Filtros />
             </Route>
             <Route path="/login">
               <LogIn />

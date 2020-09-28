@@ -24,12 +24,15 @@
 .grupPestanyes {
   display: flex;
   font-weight: bold;
-  justify-content: space-between;
+  height: 35px;
+  align-content: center;
 }
+
 .pestanya {
   width: 167px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 /* DROPDOWN MENU */

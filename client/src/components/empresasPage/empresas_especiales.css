@@ -20,6 +20,12 @@
   min-width: 100px;
 }
 
+.subtitle3 {
+  padding-right: 250px;
+  margin-top: 10px;
+  margin-bottom: 200px;
+}
+
 /* A partir de M */
 @media all and (min-width: 768px) {
   .empresas_especiales_mobile {
@@ -30,14 +36,14 @@
   }
 
   .empresas_especiales {
-    background-image: url("/images/IMAGENES_TAMAÑO/MOBILE/HOME_EMPRESAS_ESPECIALES_MOBILE.jpg");
-    width: 100%;
+    background-image: url("/images/IMAGENES_TAMAÑO/DESKTOP/HOME_EMPRESAS_ESPECIALES.jpg");
   }
 
   .empresas_especiales_box {
-    margin-right: 10%;
-    margin-left: 35%;
+    margin-right: 30%;
+    margin-left: 10%;
   }
+
   .empresas_especiales_box .features {
     text-align: left !important;
   }
@@ -48,5 +54,7 @@
   .empresas_especiales_box .feature .title3 {
     min-height: 88px;
     display: flex;
+  }
+  .subtitle {
   }
 }

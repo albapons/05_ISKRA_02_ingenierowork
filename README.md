@@ -28,12 +28,11 @@
 
 #### FALTA FER:
 
-- Arreglar filtres MARCAR / DESMARCAR TODAS
-- Arreglar NAVBAR logo resize SVG
-- Arreglar SPONSORS logo resize SVG
-- repassar responsive
-- repassar disseny, imatges
+- Resize SVG:
+  - NAVBAR logo resize SVG
+  - SPONSORS logo resize SVG
+- OFERTAS:
+  - paginate (`https://www.thatsoftwaredude.com/content/6125/how-to-paginate-through-a-collection-in-javascript`)
+  - canvi d'icona en filtres
 - Styling CONTACTE + REGISTER + LOGIN
 - Provar autenticació a REGISTER + LOGIN
-
-- Acabar OFERTAS: Paginate: (`https://www.thatsoftwaredude.com/content/6125/how-to-paginate-through-a-collection-in-javascript`)

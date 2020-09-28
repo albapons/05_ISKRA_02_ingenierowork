@@ -1,7 +1,10 @@
 .filtros {
   background-color: whitesmoke;
   padding: 20px;
-  height: auto;
+}
+
+.resultados {
+  padding: 20px;
 }
 
 .opciones {
@@ -13,10 +16,6 @@
 
 .opciones div {
   min-width: 220px;
-}
-
-.resultados {
-  padding: 20px;
 }
 
 .oferta {
@@ -41,9 +40,16 @@
 @media all and (min-width: 768px) {
   .ofertas {
     display: flex;
-    margin: 0px 10%;
   }
   .filtros {
     max-width: 300px;
+    margin-left: 13%;
+    position: absolute;
+    height: auto;
+    padding-bottom: 300px;
+  }
+  .resultados {
+    margin-right: 9%;
+    margin-left: 240px;
   }
 }

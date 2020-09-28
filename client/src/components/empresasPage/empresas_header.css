@@ -12,6 +12,9 @@
   max-width: 550px;
 }
 
+.title3thin {
+  padding-right: 26%;
+}
 /* A partir de M */
 @media all and (min-width: 768px) {
   .empresas_header {

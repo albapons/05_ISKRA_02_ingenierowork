@@ -15,7 +15,7 @@ export default class especiales_ventajas extends Component {
             para tu empresa de manera más rápida y eficaz.
           </div>
 
-          <button className="buttonB">
+          <button className="buttonB mb-4">
             <Link
               to="/login"
               style={{ color: "inherit", textDecoration: "inherit" }}

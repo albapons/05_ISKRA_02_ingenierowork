@@ -14,7 +14,7 @@ export default class empresas_especiales extends Component {
           <div className="empresas_especiales">
             <div className="empresas_especiales_box">
               <div className="title1 blue">¿QUÉ NOS HACE ESPECIALES?</div>
-              <div>
+              <div className="subtitle3 text-light">
                 Estamos especializados en ingenieria, filtramos entre los
                 ingenieros y encontramos los mejores para tu oferta.
               </div>

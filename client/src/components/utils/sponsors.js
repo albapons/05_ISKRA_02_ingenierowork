@@ -41,7 +41,7 @@ export default class sponsors extends Component {
         </div>
         <div className="box">
           <div>EN COLABORACIÓN CON</div>
-          <div className="square"></div>
+          <div className="square mx-5"></div>
           <div className="text-center">
             COLEGIO OFICIAL DE INGENIERÍA DE CATALUNYA
           </div>

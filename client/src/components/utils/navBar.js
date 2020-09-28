@@ -4,7 +4,6 @@ import React, { Component } from "react";
 import SocialMediaButtons from "./socialMediaButtons";
 import "./navBar.css";
 import "../../App.css";
-// import { ReactComponent as LOGO_HEADER } from "../../images/LOGO_HEADER.svg";
 
 export default class navBar extends Component {
   render() {
@@ -76,11 +75,11 @@ export default class navBar extends Component {
                 to="/home"
                 style={{ color: "inherit", textDecoration: "inherit" }}
               >
-                <ReactSVG
+                {/* <ReactSVG
                   className="py-3"
                   alt="Error"
                   src="/images/LOGO_HEADER.svg"
-                />
+                /> */}
               </Link>
             </div>
             <div className="col">

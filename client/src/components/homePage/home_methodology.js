@@ -30,33 +30,13 @@ export default class home_methodology extends Component {
               }
               img={"images/ICONOS/OFERTAS.svg"}
             />
+
             <Feature
-              title={"Evaluación"}
+              title={"Tú eliges"}
               text={
-                "Evaluamos los ingenieros según su afinidad con tu oferta. En todo momento puedes ver los resultados."
+                "La decisión siempre está en tus manos, escoge las ofertas de ingeniería que te interesen y haz destacar tu perfil ante las empresas."
               }
-              img={"images/ICONOS/EVALUACION_EMPRESA.svg"}
-            />
-            <Feature
-              title={"Acceso a perfiles"}
-              text={
-                "Puedes acceder en todo momento a la información de cada uno de los candidatos."
-              }
-              img={"images/ICONOS/PERFILES.svg"}
-            />
-            <Feature
-              title={"Confianza"}
-              text={
-                "Muchas de las mejores empresas ya han confiado en nosotros y han encontrado al ingeniero que estaban buscando."
-              }
-              img={"images/ICONOS/CONFIANZA.svg"}
-            />
-            <Feature
-              title={"Siempre disponible"}
-              text={
-                "Con nuestra app puedes consultar las novedades de tu oferta en cualquier momento."
-              }
-              img={"images/ICONOS/CONFIANZA.svg"}
+              img={"images/ICONOS/TU_ELIGES.svg"}
             />
           </div>
           <button className="buttonB">
