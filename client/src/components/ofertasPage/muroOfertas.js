@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useParams, useHistory } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import api from "../utils/api/api";
 import "./ofertas.css";
 
@@ -14,34 +14,32 @@ export default function Ofertas({
   let history = useHistory();
 
   const getList = (orden) => {
+    console.log();
     let sector = filtroSectores.toString().replaceAll(" - ", "-");
     let contrato = filtroContratos.toString();
 
-    // let sector = filtroSectores.toString();
-    // let contrato = filtroContratos.toString();
     // Si hi ha opcions en els dos
     if (sector && contrato) {
       if (orden !== "publicación" && orden !== "finalización") orden = "id";
       history.push(`?orden=${orden}&sector=${sector}&contrato=${contrato}`);
 
-      // Si només hi ha opció al sector o si hi ha opció al sector i contrato === ALL
-    } else if (sector || (sector && filtroContratos === "ALL")) {
+      // Si només hi ha opció al sector
+    } else if (sector) {
       if (!orden) orden = "id";
       history.push(`?orden=${orden}&sector=${sector}`);
 
-      // Si només hi ha opció a contrato o si hi ha opció a contrato i sector === ALL
-    } else if (contrato || (contrato && filtroSectores === "ALL")) {
+      // Si només hi ha opció a contrato
+    } else if (contrato) {
       if (!orden) orden = "id";
       history.push(`?orden=${orden}&contrato=${contrato}`);
 
-      // Si (no hi ha opció seleccionada de contrato ni sector) o totes les opcions estan seleccionades === ALL
+      // Si no hi ha opció seleccionada de contrato ni sector
     } else if (orden && orden !== "id") history.push(`?orden=${orden}`);
     else history.push(`/ofertas`);
 
     setOrden(orden);
 
     api.getList(search).then((response) => {
-      console.log(response.data);
       setNewBaseDades(response.data);
     });
   };
@@ -55,7 +53,7 @@ export default function Ofertas({
 
   useEffect(() => {
     getList(orden);
-  }, [orden, search, filtroSectores, filtroContratos]);
+  }, [search, filtroSectores, filtroContratos]);
 
   return (
     <div className="ofertas">
@@ -67,7 +65,6 @@ export default function Ofertas({
           </div>
           <div className="col">
             <div>Ordenar por:</div>
-            {/*//! l'onChange no s'executa quan cliquem marcar todas */}
             <select id="setBy" name="setBy" onChange={(e) => ordenar(e)}>
               <option value="defaultValue" defaultValue>
                 Selecciona...

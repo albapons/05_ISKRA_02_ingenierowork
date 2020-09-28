@@ -13,17 +13,16 @@ export default function Ofertas() {
 
   //* SELECCIONAR TODO
   const seleccionarTodo = (e) => {
-    console.log(e.target.id);
     var checkboxes = document.getElementsByClassName(e.target.id);
-    // console.log(checkboxes);
     if (document.getElementById(e.target.id).innerHTML === "Marcar todas") {
       for (let i = 0; i < checkboxes.length; i++) {
         if (checkboxes[i].type === "checkbox") {
           checkboxes[i].checked = true;
         }
       }
+      // Fill the array
+      fillArray();
       document.getElementById(e.target.id).innerHTML = "Desmarcar todas";
-      //! Fer que quan tot estigui marcat filtroSectores / filtroContratos tingui un unic valor "ALL"
     } else if (
       document.getElementById(e.target.id).innerHTML === "Desmarcar todas"
     ) {
@@ -32,8 +31,9 @@ export default function Ofertas() {
           checkboxes[i].checked = false;
         }
       }
+      // Empty the array
+      emptyArray();
       document.getElementById(e.target.id).innerHTML = "Marcar todas";
-      //! Fer que quan tot estigui marcat filtroSectores / filtroContratos tingui un unic valor "ALL"
     }
   };
 
@@ -44,7 +44,6 @@ export default function Ofertas() {
       : setFiltroSectores(
           filtroSectores.filter((item) => item !== e.target.id)
         );
-    // console.log(filtroSectores);
   };
 
   const filtrarContratos = (e) => {
@@ -53,7 +52,31 @@ export default function Ofertas() {
       : setFiltroContratos(
           filtroContratos.filter((item) => item !== e.target.id)
         );
-    // console.log(filtroContratos);
+  };
+
+  const emptyArray = () => {
+    let checkboxes1 = [...document.getElementsByClassName("opciones1")];
+    checkboxes1.every((e) => !e.checked) && setFiltroSectores([]);
+
+    let checkboxes2 = [...document.getElementsByClassName("opciones2")];
+    checkboxes2.every((e) => !e.checked) && setFiltroContratos([]);
+  };
+
+  const fillArray = () => {
+    let checkboxes1 = [...document.getElementsByClassName("opciones1")];
+    if (checkboxes1.every((e) => e.checked)) {
+      checkboxes1.map((e) => {
+        !filtroSectores.includes(e.id) &&
+          setFiltroSectores((filtroSectores) => [...filtroSectores, e.id]);
+      });
+    }
+    let checkboxes2 = [...document.getElementsByClassName("opciones2")];
+    if (checkboxes2.every((e) => e.checked)) {
+      checkboxes2.map((e) => {
+        !filtroContratos.includes(e.id) &&
+          setFiltroContratos((filtroContratos) => [...filtroContratos, e.id]);
+      });
+    }
   };
 
   return (
@@ -82,7 +105,7 @@ export default function Ofertas() {
                 }
               })}
               {sectores.sort().map((e) => (
-                <div key={e.i} className="opciones1">
+                <div key={e.i}>
                   <input
                     className="opciones1"
                     type="checkbox"
@@ -128,7 +151,7 @@ export default function Ofertas() {
                 }
               })}
               {contratos.sort().map((e) => (
-                <div key={e.i} className="opciones1">
+                <div key={e.i}>
                   <input
                     className="opciones2"
                     type="checkbox"
