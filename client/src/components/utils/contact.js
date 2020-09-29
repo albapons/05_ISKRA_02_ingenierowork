@@ -1,67 +1,108 @@
-import React from "react";
-import {
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBBtn,
-  MDBInput,
-  MDBIcon,
-} from "mdbreact";
+import React, { Component } from "react";
+import "./login.css";
 import "../../App.css";
+export default class Contact extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    };
+  }
 
-const Contact = () => {
-  return (
-    <MDBContainer>
-      <MDBRow>
-        <MDBCol md="6">
-          <form>
-            <p className="h5 text-center mb-4">Write to us</p>
-            <div className="grey-text">
-              <MDBInput
-                label="Your name"
-                icon="user"
-                group
-                type="text"
-                validate
-                error="wrong"
-                success="right"
-              />
-              <MDBInput
-                label="Your email"
-                icon="envelope"
-                group
-                type="email"
-                validate
-                error="wrong"
-                success="right"
-              />
-              <MDBInput
-                label="Subject"
-                icon="tag"
-                group
-                type="text"
-                validate
-                error="wrong"
-                success="right"
-              />
-              <MDBInput
-                type="textarea"
-                rows="2"
-                label="Your message"
-                icon="pencil-alt"
-              />
-            </div>
-            <div className="text-center">
-              <MDBBtn outline color="secondary">
-                Send
-                <MDBIcon far icon="paper-plane" className="ml-1" />
-              </MDBBtn>
-            </div>
-          </form>
-        </MDBCol>
-      </MDBRow>
-    </MDBContainer>
-  );
-};
+  handleInput = (e) => {
+    const value = e.target.value;
+    const name = e.target.name;
 
-export default Contact;
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  render() {
+    const { name, email, subject, message } = this.state;
+    return (
+      <div className="loginBox">
+        <div className="text-center">
+          <div className="text-center">
+            <i className="fas fa-hands-helping fa-4x blue text-center"></i>
+          </div>
+          <div className="title2">¿Te ayudamos?</div>
+          <div className="title4thin mb-3">
+            Por favor, llena este formulario para que podamos responder
+            adecuadamente tu pregunta
+          </div>
+        </div>
+        <div className="inputBox">
+          <input
+            type="name"
+            id="name"
+            name="name"
+            value={name}
+            onChange={this.handleChange}
+            required
+          />
+          <span className="bar" />
+          <label className="title5">
+            <i className="fas fa-envelope blue mr-3"></i>Nombre
+          </label>
+        </div>
+        <div className="inputBox">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={email}
+            onChange={this.handleChange}
+            required
+          />
+          <span className="bar" />
+          <label className="title5">
+            <i className="fas fa-envelope blue mr-3"></i>E-mail
+          </label>
+        </div>
+        <div className="inputBox">
+          <input
+            type="subject"
+            id="subject"
+            name="subject"
+            value={subject}
+            onChange={this.handleChange}
+            required
+          />
+          <span className="bar" />
+          <label className="title5">
+            <i className="fas fa-lock blue mr-3"></i>Asunto
+          </label>
+        </div>
+        <div className="inputBox">
+          <input
+            type="textarea"
+            id="message"
+            name="message"
+            value={message}
+            onChange={this.handleChange}
+            required
+          />
+          <span className="bar" />
+          <label className="title5">
+            <i className="fas fa-lock blue mr-3"></i>Deja tu mensaje
+          </label>
+        </div>
+
+        <div className="text-center pt-2">
+          <button
+            className="buttonB"
+            type="submit"
+            onClick={this.login}
+            // disabled={!email || !password}
+          >
+            Enviar
+          </button>
+        </div>
+      </div>
+    );
+  }
+}

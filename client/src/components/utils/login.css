@@ -5,19 +5,17 @@
   background-color: whitesmoke;
 }
 
-.loginBox div {
-  margin: 20px auto;
-  display: flex;
-  flex-direction: column;
+.loginBox .inputBox {
+  margin: 10px auto;
   width: 80%;
 }
 
 .loginBox input {
   font-size: 18px;
   padding: 10px;
-  margin-bottom: 7px;
   border: none;
   background-color: whitesmoke;
+  width: 100%;
 }
 
 label {

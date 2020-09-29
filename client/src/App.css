@@ -75,6 +75,15 @@
   text-transform: uppercase;
   padding: 7px 0px;
 }
+
+.title4thin {
+  font-family: "Roboto Slab", serif;
+  line-height: 1;
+  font-size: 20px;
+  font-weight: 300;
+  padding: 7px 0px;
+}
+
 .title5 {
   font-family: "Roboto Slab", serif;
   line-height: 1;

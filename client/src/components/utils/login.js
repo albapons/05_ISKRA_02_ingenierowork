@@ -50,7 +50,15 @@ export default class Login extends Component {
     const { email, password } = this.state;
     return (
       <div className="loginBox">
-        <div>
+        <div className="text-center">
+          <div className="text-center">
+            <i className="fas fa-user fa-4x blue text-center"></i>
+          </div>
+          <div className="title2">Hola de nuevo!</div>
+          <div className="title4thin mb-3">Inicia sesión en tu cuenta...</div>
+        </div>
+
+        <div className="inputBox">
           <input
             type="email"
             id="email"
@@ -64,7 +72,7 @@ export default class Login extends Component {
             <i className="fas fa-envelope blue mr-3"></i>E-mail
           </label>
         </div>
-        <div>
+        <div className="inputBox">
           <input
             type="password"
             id="defaultLoginFormPassword"
@@ -75,23 +83,23 @@ export default class Login extends Component {
           />
           <span className="bar" />
           <label className="title5">
-            <i className="fas fa-lock blue mr-3"></i>Password
+            <i className="fas fa-lock blue mr-3"></i>Contraseña
           </label>
         </div>
 
-        <div className="text-center pt-0">
+        <div className="text-center pt-2">
           <button
             className="buttonB"
             type="submit"
             onClick={this.login}
             disabled={!email || !password}
           >
-            Sign in
+            Iniciar sesión
           </button>
-          <p className=" title5 pt-4">
-            Not a member?
-            <a className="blue" href="/register">
-              Register
+          <p className=" title5 mb-3">
+            ¿Eres nuevo/a en IngenieroWork?
+            <a className="blue ml-3" href="/register">
+              Crea tu cuenta
             </a>
           </p>
         </div>

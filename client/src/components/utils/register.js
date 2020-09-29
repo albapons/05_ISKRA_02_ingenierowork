@@ -1,58 +1,123 @@
-import React from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBInput } from "mdbreact";
+import React, { Component } from "react";
 import "../../App.css";
 
-const Register = () => {
-  return (
-    <MDBContainer>
-      <MDBRow>
-        <MDBCol md="6">
-          <form>
-            <p className="h5 text-center mb-4">Sign up</p>
-            <div className="grey-text">
-              <MDBInput
-                label="Your name"
-                icon="user"
-                group
-                type="text"
-                validate
-                error="wrong"
-                success="right"
-              />
-              <MDBInput
-                label="Your email"
-                icon="envelope"
-                group
-                type="email"
-                validate
-                error="wrong"
-                success="right"
-              />
-              <MDBInput
-                label="Confirm your email"
-                icon="exclamation-triangle"
-                group
-                type="text"
-                validate
-                error="wrong"
-                success="right"
-              />
-              <MDBInput
-                label="Your password"
-                icon="lock"
-                group
-                type="password"
-                validate
-              />
-            </div>
-            <div className="text-center">
-              <MDBBtn color="primary">Register</MDBBtn>
-            </div>
-          </form>
-        </MDBCol>
-      </MDBRow>
-    </MDBContainer>
-  );
-};
+export default class Register extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: "",
+      password: "",
+      repeatPassword: "",
+    };
+  }
 
-export default Register;
+  // componentDidMount() {
+  //   this.getUsers();
+  // }
+
+  // getUsers = () => {
+  //   fetch(`/users`)
+  //     .then((response) => response.json())
+  //     .then((response) => {
+  //       this.setState({ users: response });
+  //     });
+  // };
+
+  // addUsers = () => {
+  //   const { email, password, repeatPassword } = this.state;
+
+  //   if (password === repeatPassword) {
+  //     apiRegister.postUser(email, password, repeatPassword).then((response) => {
+  //       console.log(response.data);
+  //     });
+  //     this.getUsers();
+  //     window.location.href = "/login";
+  //   } else {
+  //     console.log("enviar alerta, les contrasenyes no coincideixen");
+  //   }
+  // };
+
+  handleInput = (e) => {
+    const { value, name } = e.target;
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  render() {
+    const { email, password, repeatPassword } = this.state;
+    return (
+      <div className="loginBox">
+        <div className="text-center">
+          <div className="text-center">
+            <i className="fas fa-user-friends fa-4x blue text-center"></i>
+          </div>
+          <div className="title2">Bienvenido/a!</div>
+          <div className="title4thin mb-3">Crea tu propia cuenta...</div>
+        </div>
+
+        <div className="inputBox">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={email}
+            onChange={this.handleInput}
+            required
+          />
+          <span className="bar" />
+          <label className="title5">
+            {/* <i className="fas fa-envelope blue mr-3"></i> */}
+            E-mail
+          </label>
+        </div>
+        <div className="inputBox">
+          <input
+            type="password"
+            id="defaultLoginFormPassword"
+            name="password"
+            value={password}
+            onChange={this.handleInput}
+            required
+          />
+          <span className="bar" />
+          <label className="title5">
+            {/* <i className="fas fa-lock blue mr-3"></i> */}
+            Contraseña
+          </label>
+        </div>
+        <div className="inputBox">
+          <input
+            type="password"
+            id="repeatPassword"
+            name="repeatPassword"
+            value={repeatPassword}
+            onChange={this.handleInput}
+            required
+          />
+          <span className="bar" />
+          <label className="title5">
+            {/* <i className="fas fa-lock blue mr-3"></i> */}
+            Repite la contraseña
+          </label>
+        </div>
+        <div className="text-center pt-0">
+          <button
+            className="buttonB"
+            type="submit"
+            onClick={this.addUsers}
+            disabled={!email || !password}
+          >
+            Crear cuenta
+          </button>
+          <p className=" title5 pt-4">
+            ¿Ya tienes una cuenta?
+            <a className="blue ml-3" href="/login">
+              Inicia sesión
+            </a>
+          </p>
+        </div>
+      </div>
+    );
+  }
+}
