@@ -20,7 +20,7 @@ export default class Login extends Component {
 
   login = () => {
     const { email, password } = this.state;
-    axios("/api/users/login", {
+    axios("/users/login", {
       method: "POST",
       data: {
         email,
@@ -30,8 +30,8 @@ export default class Login extends Component {
       .then((response) => {
         localStorage.setItem("token", response.data.token);
         // console.log(response);
-        this.props.history.push("/");
-        // console.log(this.props);
+        this.props.history.push("/home");
+        console.log(this.props);
         localStorage.setItem("email", email);
         // console.log(response);
         this.props.onLogin(email, this.props.history);
@@ -94,7 +94,7 @@ export default class Login extends Component {
             onClick={this.login}
             disabled={!email || !password}
           >
-            Iniciar sesión
+            {/* button disabled styling */} Iniciar sesión
           </button>
           <p className=" title5 mb-3">
             ¿Eres nuevo/a en IngenieroWork?

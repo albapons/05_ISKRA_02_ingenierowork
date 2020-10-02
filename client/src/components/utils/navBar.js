@@ -51,7 +51,7 @@ export default class navBar extends Component {
           <div className="navBar2">
             <div className="px-2 font-weight-bold">
               <Link
-                to="/login"
+                to="/users/login"
                 style={{ color: "inherit", textDecoration: "inherit" }}
               >
                 Inicio de sesión

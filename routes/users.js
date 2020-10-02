@@ -17,14 +17,14 @@ const getUsers = (req, res) => {
 router.get("/", getUsers);
 
 // GET one user
-router.get("/:id", userShouldBeLoggedIn, function (req, res, next) {
-  const { id } = req.params;
-  db(`SELECT * FROM users WHERE id = ${id};`)
-    .then((results) => {
-      res.send(results.data[0]);
-    })
-    .catch((err) => res.status(500).send(err));
-});
+// router.get("/:id", userShouldBeLoggedIn, function (req, res, next) {
+//   const { id } = req.params
+//   db(`SELECT * FROM users WHERE id = ${id};`)
+//     .then((results) => {
+//       res.send(results.data[0]);
+//     })
+//     .catch((err) => res.status(500).send(err));
+// });
 
 // GET PROFILE INFO
 // router.get("/profile", userShouldBeLoggedIn, function (req, res, next) {
@@ -35,27 +35,27 @@ router.get("/:id", userShouldBeLoggedIn, function (req, res, next) {
 router.post("/", function (req, res, next) {
   const { email, password } = req.body;
   db(`INSERT INTO users (email, password) VALUES ( "${email}", "${password}");`)
-    .then((results) => {
+    .then(() => {
       res.send({ msg: "Your data was inputted correctly!" });
     })
     .catch((err) => res.status(500).send(err));
 });
 
 // POST LOGIN
-// router.post("/login", function (req, res, next) {
-//   const { username, password } = req.body;
-//   db(
-//     `SELECT * FROM users WHERE username = "${username}" AND password = "${password}";`
-//   ).then((results) => {
-//     if (results.data.length) {
-//       console.log("Yes the user is found");
-//       var token = jwt.sign({ userId: results.data[0].id }, supersecret);
-//       res.send({ msg: "User OK, here is your token", token });
-//     } else {
-//       res.status(404).send({ msg: "User not found!" });
-//     }
-//   });
-// });
+router.post("/login", function (req, res, next) {
+  const { email, password } = req.body;
+  db(
+    `SELECT * FROM users WHERE email = "${email}" AND password = "${password}";`
+  ).then((results) => {
+    if (results.data.length) {
+      console.log("Yes the user is found");
+      var token = jwt.sign({ userId: results.data[0].id }, supersecret);
+      res.send({ msg: "User OK, here is your token", token });
+    } else {
+      res.status(404).send({ msg: "User not found!" });
+    }
+  });
+});
 
 // DELETE a user from the DB
 // router.delete("/:id", function (req, res, next) {

@@ -9,6 +9,7 @@ export default class Register extends Component {
       email: "",
       password: "",
       repeatPassword: "",
+      alerta: false,
     };
   }
 
@@ -32,10 +33,10 @@ export default class Register extends Component {
       apiRegister.postUser(email, password).then((response) => {
         console.log(response.data);
       });
-      // this.getUsers();
-      // window.location.href = "/login";
+      this.getUsers();
+      window.location.href = "/users/login";
     } else {
-      console.log("enviar alerta, les contrasenyes no coincideixen");
+      this.setState({ alerta: true });
     }
   };
 
@@ -47,7 +48,7 @@ export default class Register extends Component {
   };
 
   render() {
-    const { email, password, repeatPassword } = this.state;
+    const { email, password, repeatPassword, alerta } = this.state;
     return (
       <div className="loginBox">
         <div className="text-center">
@@ -58,6 +59,7 @@ export default class Register extends Component {
           <div className="title4thin mb-3">Crea tu propia cuenta...</div>
         </div>
 
+        {/* alerta styling */ alerta && <div>ALERTA!</div>}
         <div className="inputBox">
           <input
             type="email"
@@ -114,7 +116,7 @@ export default class Register extends Component {
           </button>
           <p className=" title5 pt-4">
             ¿Ya tienes una cuenta?
-            <a className="blue ml-3" href="/login">
+            <a className="blue ml-3" href="/users/login">
               Inicia sesión
             </a>
           </p>
