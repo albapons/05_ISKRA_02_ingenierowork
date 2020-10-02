@@ -1,7 +1,7 @@
 .loginBox {
   margin: 60px auto 0px auto;
   padding: 30px;
-  max-width: 50%;
+  max-width: 80%;
   background-color: whitesmoke;
 }
 
@@ -65,4 +65,10 @@ input:focus ~ div {
 input:focus ~ .bar:before,
 input:focus ~ .bar:after {
   width: 50%;
+}
+
+@media all and (min-width: 1024px) {
+  .loginBox {
+    max-width: 50%;
+  }
 }

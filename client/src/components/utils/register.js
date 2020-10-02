@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../../App.css";
+import apiRegister from "./api/apiRegister";
 
 export default class Register extends Component {
   constructor(props) {
@@ -11,31 +12,32 @@ export default class Register extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   this.getUsers();
-  // }
+  componentDidMount() {
+    this.getUsers();
+  }
 
-  // getUsers = () => {
-  //   fetch(`/users`)
-  //     .then((response) => response.json())
-  //     .then((response) => {
-  //       this.setState({ users: response });
-  //     });
-  // };
+  getUsers = () => {
+    fetch(`/users`)
+      .then((response) => response.json())
+      .then((response) => {
+        this.setState({ users: response });
+      });
+  };
 
-  // addUsers = () => {
-  //   const { email, password, repeatPassword } = this.state;
+  addUsers = () => {
+    const { email, password, repeatPassword } = this.state;
 
-  //   if (password === repeatPassword) {
-  //     apiRegister.postUser(email, password, repeatPassword).then((response) => {
-  //       console.log(response.data);
-  //     });
-  //     this.getUsers();
-  //     window.location.href = "/login";
-  //   } else {
-  //     console.log("enviar alerta, les contrasenyes no coincideixen");
-  //   }
-  // };
+    if (password === repeatPassword) {
+      console.log("correct!");
+      apiRegister.postUser(email, password).then((response) => {
+        console.log(response.data);
+      });
+      // this.getUsers();
+      // window.location.href = "/login";
+    } else {
+      console.log("enviar alerta, les contrasenyes no coincideixen");
+    }
+  };
 
   handleInput = (e) => {
     const { value, name } = e.target;

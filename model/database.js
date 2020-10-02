@@ -20,7 +20,8 @@ con.connect(function (err) {
   console.log("Connected!");
 
   let sql = `DROP TABLE IF EXISTS ofertas;
-    
+  DROP TABLE IF EXISTS users;
+
     CREATE TABLE ofertas (
       id int NOT NULL primary key AUTO_INCREMENT,
       puesto varchar(255) NOT NULL,
@@ -31,6 +32,24 @@ con.connect(function (err) {
       sector varchar(255) NOT NULL,
       descripción varchar(255) NOT NULL
     );
+
+    CREATE TABLE users (
+      id int NOT NULL primary key AUTO_INCREMENT,
+      email varchar(255) NOT NULL,
+      password varchar(255) NOT NULL
+    );
+
+    INSERT INTO users (email, password) 
+    VALUES ("test0@test.com", "0000");
+    
+    INSERT INTO users (email, password) 
+    VALUES ("test1@test.com", "1111");
+
+    INSERT INTO users (email, password) 
+    VALUES ("test2@test.com", "2222");
+    
+    INSERT INTO users (email, password) 
+    VALUES ("test3@test.com", "3333");
 
     INSERT INTO ofertas (puesto, lugar, publicación, finalización, contrato, sector, descripción) 
     VALUES ("Design Engineer", "Manresa", "2020-06-28", "2020-09-31", "Indefinido", "Automoción", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus erat sapien, ultrices nec dolor ac, cursus semper lacus. Nunc sit amet volutpat libero, at semper tellus. Proin non lectus erat. Curabitur vulputate tellus et sollicitudin fermentum.");
