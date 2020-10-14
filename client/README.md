@@ -24,13 +24,13 @@
 
 #### FALTA FER:
 
+- Alerta LOGOUT abans de tancar sessió
+- REGISTER canviar icones quan mostrem contrasenya
+
 - Arreglar NAVBAR logo resize SVG
 - Arreglar SPONSORS logo resize SVG
 
+- FILTRES un cop seleccionats, si canviem l'ordre, no es refresca l'ordre
+
 - Acabar OFERTAS:
-
-  - Lògica per filtres
-  - Lògica per ordenar ofertes (refresh))
   - Paginate: (`https://www.thatsoftwaredude.com/content/6125/how-to-paginate-through-a-collection-in-javascript`)
-
-- Inventar REGISTER + LOGIN + CONTACTE

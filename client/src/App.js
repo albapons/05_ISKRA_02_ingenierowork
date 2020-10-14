@@ -21,33 +21,36 @@ export default class App extends Component {
   // si està login guardar com a state l'email
   componentDidMount() {
     if (localStorage.getItem("email"))
-      this.setState({ email: localStorage.getItem("email") });
+      this.setState({ email: localStorage.getItem("email"), login: true });
   }
 
   // guardar e-mail després de login i redirigir a home page
   onLogin = (email, history) => {
-    this.setState({ email });
+    this.setState({ email, login: true });
     history.push("/home");
   };
 
   // eliminar de localStorage i de l'estat email i token
-  // logOut = () => {
-  //   localStorage.removeItem("email");
-  //   localStorage.removeItem("token");
-  //   this.setState({ email: "" });
-  // };
+  logOut = () => {
+    var bool = window.confirm("¿Seguro que quiere cerrar la sesión?");
+    if (bool) {
+      localStorage.removeItem("email");
+      localStorage.removeItem("token");
+      this.setState({ email: "", login: false });
+      window.alert("¡Hasta pronto!");
+    } else {
+      window.alert("¡Seguimos conectados!");
+    }
+  };
 
-  // window.onbeforeunload = (e) => {
-  //   localStorage.removeItem("email");
-  //   localStorage.removeItem("token");
-  //   this.setState({ email: "" });
-  // };
+  // Amb sessionStorage s'eliminen les dades cada cop que es tanca pestanya
 
   render() {
     return (
       <div className="App">
         <Router>
-          <NavBar />
+          <NavBar login={this.state.login} logOut={this.logOut} />
+
           <Switch>
             <Route path="/empresas" component={Empresas} />
             <Route path="/especiales">

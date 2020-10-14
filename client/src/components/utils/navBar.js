@@ -6,6 +6,11 @@ import "./navBar.css";
 import "../../App.css";
 
 export default class navBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   render() {
     return (
       <div>
@@ -75,42 +80,67 @@ export default class navBar extends Component {
                 to="/home"
                 style={{ color: "inherit", textDecoration: "inherit" }}
               >
-                {/* <ReactSVG
+                <ReactSVG
                   className="py-3"
                   alt="Error"
                   src="/images/LOGO_HEADER.svg"
-                /> */}
+                />
               </Link>
             </div>
-            <div className="col">
-              <div className="row d-flex justify-content-end py-2">
-                <SocialMediaButtons />
-              </div>
-              <div className="grupPestanyes">
-                <div className="pestanya subtitle">
-                  <Link
-                    to="/login"
-                    style={{ color: "inherit", textDecoration: "inherit" }}
-                  >
-                    Inicio de sesión
-                  </Link>
-                </div>
-                <div className="pestanya subtitle">
-                  <Link
-                    to="/empresas"
-                    style={{ color: "inherit", textDecoration: "inherit" }}
-                  >
-                    Soy una empresa
-                  </Link>
-                </div>
-                <div className="pestanya bgBlue">
-                  <Link
-                    to="/register"
-                    style={{ color: "inherit", textDecoration: "inherit" }}
-                  >
-                    REGÍSTRATE
-                  </Link>
-                </div>
+
+            <div className="col d-flex align-items-center justify-content-end">
+              <div className="col">
+                {this.props.login ? (
+                  <div className="d-flex align-items-center justify-content-end">
+                    <div
+                      className="title4thin d-flex align-items-center"
+                      onClick={() => this.props.logOut()}
+                    >
+                      Logout
+                      <i className="fas fa-sign-out-alt mx-3 socialMediaDesktop" />
+                    </div>
+                    <SocialMediaButtons />
+                  </div>
+                ) : (
+                  <div className="row d-flex justify-content-end pt-2">
+                    <SocialMediaButtons />
+                    <div className="grupPestanyes mt-2">
+                      <div className="pestanya subtitle">
+                        <Link
+                          to="/users/login"
+                          style={{
+                            color: "inherit",
+                            textDecoration: "inherit",
+                          }}
+                        >
+                          Inicio de sesión
+                        </Link>
+                      </div>
+                      <div className="pestanya subtitle">
+                        <Link
+                          to="/empresas"
+                          style={{
+                            color: "inherit",
+                            textDecoration: "inherit",
+                          }}
+                        >
+                          Soy una empresa
+                        </Link>
+                      </div>
+                      <div className="pestanya bgBlue">
+                        <Link
+                          to="/register"
+                          style={{
+                            color: "inherit",
+                            textDecoration: "inherit",
+                          }}
+                        >
+                          REGÍSTRATE
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>

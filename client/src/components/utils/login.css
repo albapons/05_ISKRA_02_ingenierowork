@@ -23,14 +23,22 @@ label {
   transition: 0.2s all;
 }
 
+#toggle {
+  position: absolute;
+  display: inline-block;
+  cursor: pointer;
+  margin-left: -30px;
+  margin-top: 8px;
+}
+
 /* ACTIVE STATE ================================= */
 
 input:focus {
   outline: none;
 }
 
-input:focus ~ label,
-input:focus ~ div {
+/* a totes les label després d'un input focused */
+.inputBox input:focus ~ label {
   font-size: 13px;
   color: grey;
   top: -60px;

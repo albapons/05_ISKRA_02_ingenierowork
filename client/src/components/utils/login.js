@@ -9,6 +9,7 @@ export default class Login extends Component {
     this.state = {
       email: "",
       password: "",
+      alerta: false,
     };
   }
 
@@ -38,6 +39,7 @@ export default class Login extends Component {
       })
       .catch((error) => {
         console.log(error);
+        this.setState({ alerta: true });
       });
   };
 
@@ -85,6 +87,11 @@ export default class Login extends Component {
           <label className="title5">
             <i className="fas fa-lock blue mr-3"></i>Contraseña
           </label>
+          {this.state.alerta && (
+            <div class="alert alert-danger" role="alert">
+              El usuario y/o clave son incorrectas, vuelva a intentarlo.
+            </div>
+          )}
         </div>
 
         <div className="text-center pt-2">
@@ -96,7 +103,7 @@ export default class Login extends Component {
           >
             {/* button disabled styling */} Iniciar sesión
           </button>
-          <p className=" title5 mb-3">
+          <p className=" title5 mb-3 pt-4">
             ¿Eres nuevo/a en IngenieroWork?
             <a className="blue ml-3" href="/register">
               Crea tu cuenta

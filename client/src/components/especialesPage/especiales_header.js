@@ -8,24 +8,22 @@ export default class especiales_header extends Component {
     return (
       <div className="especiales_header">
         <div className="especiales_header-box">
-          <Router>
-            <div className="title2thin">
-              LO QUE NOS HACE
-              <span className="font-italic font-weight-bold"> ESPECIALES</span>
-            </div>
-            <div className="subtitle1">
-              Ahorra tiempo y dinero en la elección de nuevos ingenieros gracias
-              a la selección inteligente.
-            </div>
-            <button className="buttonW">
-              <Link
-                to="/login"
-                style={{ color: "inherit", textDecoration: "inherit" }}
-              >
-                CREAR OFERTA
-              </Link>
-            </button>
-          </Router>
+          <div className="title2thin">
+            LO QUE NOS HACE
+            <span className="font-italic font-weight-bold"> ESPECIALES</span>
+          </div>
+          <div className="subtitle1">
+            Ahorra tiempo y dinero en la elección de nuevos ingenieros gracias a
+            la selección inteligente.
+          </div>
+          <button className="buttonW">
+            <Link
+              to="/users/login"
+              style={{ color: "inherit", textDecoration: "inherit" }}
+            >
+              CREAR OFERTA
+            </Link>
+          </button>
         </div>
       </div>
     );

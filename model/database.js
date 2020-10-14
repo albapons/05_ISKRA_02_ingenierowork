@@ -38,9 +38,6 @@ con.connect(function (err) {
       email varchar(255) NOT NULL,
       password varchar(255) NOT NULL
     );
-
-    INSERT INTO users (email, password) 
-    VALUES ("test0@test.com", "0000");
     
     INSERT INTO users (email, password) 
     VALUES ("test1@test.com", "1111");

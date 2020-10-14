@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../../App.css";
+import "./login.css";
 import apiRegister from "./api/apiRegister";
 
 export default class Register extends Component {
@@ -47,6 +48,20 @@ export default class Register extends Component {
     });
   };
 
+  togglePassword = (e) => {
+    console.log(e);
+    // La X ens servirà per canviar type password / text
+    var x = document.getElementById(e);
+    //! La Y ens servirà per canviar la icona eye - NO FUNCIONA
+    // var y = document.getElementsByName("eye")[0];
+
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  };
+
   render() {
     const { email, password, repeatPassword, alerta } = this.state;
     return (
@@ -59,7 +74,6 @@ export default class Register extends Component {
           <div className="title4thin mb-3">Crea tu propia cuenta...</div>
         </div>
 
-        {/* alerta styling */ alerta && <div>ALERTA!</div>}
         <div className="inputBox">
           <input
             type="email"
@@ -70,25 +84,24 @@ export default class Register extends Component {
             required
           />
           <span className="bar" />
-          <label className="title5">
-            {/* <i className="fas fa-envelope blue mr-3"></i> */}
-            E-mail
-          </label>
+          <label className="title5">E-mail</label>
         </div>
         <div className="inputBox">
           <input
             type="password"
-            id="defaultLoginFormPassword"
+            id="password"
             name="password"
             value={password}
             onChange={this.handleInput}
             required
           />
+
+          <div id="toggle" onClick={(e) => this.togglePassword("password")}>
+            <i className="fas fa-eye blue"></i>
+          </div>
+
           <span className="bar" />
-          <label className="title5">
-            {/* <i className="fas fa-lock blue mr-3"></i> */}
-            Contraseña
-          </label>
+          <label className="title5">Contraseña</label>
         </div>
         <div className="inputBox">
           <input
@@ -99,12 +112,22 @@ export default class Register extends Component {
             onChange={this.handleInput}
             required
           />
+          <div
+            id="toggle"
+            onClick={(e) => this.togglePassword("repeatPassword")}
+          >
+            <i name="eye" className="fas fa-eye blue"></i>
+          </div>
+
           <span className="bar" />
-          <label className="title5">
-            {/* <i className="fas fa-lock blue mr-3"></i> */}
-            Repite la contraseña
-          </label>
+          <label className="title5">Repite la contraseña</label>
+          {alerta && (
+            <div class="alert alert-danger" role="alert">
+              Las contraseñas no coinciden, por favor, revisa los dos campos.
+            </div>
+          )}
         </div>
+
         <div className="text-center pt-0">
           <button
             className="buttonB"
