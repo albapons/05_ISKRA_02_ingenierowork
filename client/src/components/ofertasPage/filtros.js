@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import baseDades from "../utils/baseDades";
 import Ofertas from "./ofertas";
 import "./filtros.css";
