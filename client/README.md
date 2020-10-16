@@ -25,7 +25,7 @@
 
 #### FALTA FER:
 
-- Validar camps formulari
+- Buttons disabled
 - Validar si l'email ja està creat o no.
 
 - Arreglar NAVBAR logo resize SVG
