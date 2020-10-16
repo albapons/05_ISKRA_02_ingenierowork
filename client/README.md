@@ -14,6 +14,7 @@
 - Bootstrap React: `npm install react-bootstrap bootstrap` (`https://react-bootstrap.github.io/getting-started/introduction`)
 - React Router: `npm install react-router-dom`
 - REACT- SVG: `npm i react-svg`
+- REACT Toastify: `npm install --save react-toastify`
 
 - For the backend:
   - Express: `npx express-generator`
@@ -24,8 +25,8 @@
 
 #### FALTA FER:
 
-- Alerta LOGOUT abans de tancar sessió
-- REGISTER canviar icones quan mostrem contrasenya
+- Validar camps formulari
+- Validar si l'email ja està creat o no.
 
 - Arreglar NAVBAR logo resize SVG
 - Arreglar SPONSORS logo resize SVG

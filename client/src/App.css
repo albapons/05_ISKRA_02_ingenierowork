@@ -145,6 +145,11 @@
   font-weight: 600;
 }
 
+/* Toastify */
+.Toastify__toast-container--top-right {
+  top: 4.7em !important;
+}
+
 /*? XULETA PER CSS RESPONSIVE */
 
 /** Móviles en vertical (S) */
