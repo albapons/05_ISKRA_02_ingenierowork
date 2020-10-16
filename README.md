@@ -25,8 +25,6 @@
 
 #### FALTA FER:
 
-- Buttons disabled
-- Revisar codi --> Validar si l'email ja està creat o no.
 - FILTRES un cop seleccionats, si canviem l'ordre, no es refresca l'ordre
 
 - Arreglar NAVBAR logo resize SVG
