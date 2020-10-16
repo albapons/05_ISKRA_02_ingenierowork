@@ -11,13 +11,10 @@
 
 ### Libraries Installed
 
-- For the backend:
-
-  - Bootstrap React: `npm install react-bootstrap bootstrap` (`https://react-bootstrap.github.io/getting-started/introduction`)
-  - React Router: `npm install react-router-dom`
-  - REACT - SVG: `npm i react-svg`
-  - MDBReact: `npm i mdbreact`
-  - MDBootstrap: `mdbootstrap`
+- Bootstrap React: `npm install react-bootstrap bootstrap` (`https://react-bootstrap.github.io/getting-started/introduction`)
+- React Router: `npm install react-router-dom`
+- REACT- SVG: `npm i react-svg`
+- REACT Toastify: `npm install --save react-toastify`
 
 - For the backend:
   - Express: `npx express-generator`
@@ -28,11 +25,12 @@
 
 #### FALTA FER:
 
-- Resize SVG:
-  - NAVBAR logo resize SVG
-  - SPONSORS logo resize SVG
-- OFERTAS:
-  - paginate (`https://www.thatsoftwaredude.com/content/6125/how-to-paginate-through-a-collection-in-javascript`)
-  - canvi d'icona en filtres
-- Styling CONTACTE + REGISTER + LOGIN
-- Provar autenticació a REGISTER + LOGIN
+- Buttons disabled
+- Revisar codi --> Validar si l'email ja està creat o no.
+- FILTRES un cop seleccionats, si canviem l'ordre, no es refresca l'ordre
+
+- Arreglar NAVBAR logo resize SVG
+- Arreglar SPONSORS logo resize SVG
+
+- Acabar OFERTAS:
+  - Paginate: (`https://www.thatsoftwaredude.com/content/6125/how-to-paginate-through-a-collection-in-javascript`)

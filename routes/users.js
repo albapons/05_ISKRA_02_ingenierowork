@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var jwt = require("jsonwebtoken");
-var userShouldBeLoggedIn = require("../guards/userShoudBeLoggedIn");
+// var userShouldBeLoggedIn = require("../guards/userShoudBeLoggedIn");
 const db = require("../model/helper");
 require("dotenv").config();
 const supersecret = process.env.SUPER_SECRET;
@@ -16,32 +16,30 @@ const getUsers = (req, res) => {
 };
 router.get("/", getUsers);
 
-// GET one user
-// router.get("/:id", userShouldBeLoggedIn, function (req, res, next) {
-//   const { id } = req.params
-//   db(`SELECT * FROM users WHERE id = ${id};`)
-//     .then((results) => {
-//       res.send(results.data[0]);
-//     })
-//     .catch((err) => res.status(500).send(err));
-// });
-
-// GET PROFILE INFO
-// router.get("/profile", userShouldBeLoggedIn, function (req, res, next) {
-//   res.send({ msg: `Here is the private data for user ${userId}!` });
-// });
-
-// POST a new user into the DB
+// REGISTER a new user into the DB
 router.post("/", function (req, res, next) {
   const { email, password } = req.body;
-  db(`INSERT INTO users (email, password) VALUES ( "${email}", "${password}");`)
-    .then(() => {
-      res.send({ msg: "Your data was inputted correctly!" });
-    })
-    .catch((err) => res.status(500).send(err));
+  // El usuario existe?
+  db(`SELECT * FROM users WHERE email = "${email}";`).then((results) => {
+    // Si ya existe, enviar mensaje
+    if (results.data.length) {
+      res.send({ msg: "¡Usuario ya registrado!" });
+    } else {
+      // Si no existe, crear usuario
+      db(
+        `INSERT INTO users (email, password) VALUES ( "${email}", "${password}");`
+      )
+        .then(() => {
+          res.send({
+            msg: "¡Cuenta creada correctamente, ya puedes iniciar tu sesión!",
+          });
+        })
+        .catch((err) => res.status(500).send(err));
+    }
+  });
 });
 
-// POST LOGIN
+// LOGIN
 router.post("/login", function (req, res, next) {
   const { email, password } = req.body;
   db(
@@ -50,21 +48,12 @@ router.post("/login", function (req, res, next) {
     if (results.data.length) {
       console.log("Yes the user is found");
       var token = jwt.sign({ userId: results.data[0].id }, supersecret);
-      res.send({ msg: "User OK, here is your token", token });
+      console.log("User OK, here is your token" + token);
+      res.send({ msg: "¡Bienvenido!" });
     } else {
       res.status(404).send({ msg: "User not found!" });
     }
   });
 });
-
-// DELETE a user from the DB
-// router.delete("/:id", function (req, res, next) {
-//   const { id } = req.params;
-//   db(`DELETE FROM users WHERE id = ${id}`)
-//     .then((results) => {
-//       res.send({ msg: "Your data was deleted correctly!" });
-//     })
-//     .catch((err) => res.status(500).send(err));
-// });
 
 module.exports = router;

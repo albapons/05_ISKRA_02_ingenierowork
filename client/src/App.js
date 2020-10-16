@@ -22,6 +22,8 @@ export default class App extends Component {
     this.state = { email: "", login: false };
   }
 
+  notify = (text) => toast.warning(text);
+
   // si està login guardar com a state l'email
   componentDidMount() {
     if (localStorage.getItem("email"))
@@ -29,19 +31,11 @@ export default class App extends Component {
   }
 
   // guardar e-mail després de login i redirigir a home page
-  onLogin = (email, history) => {
+  onLogin = (email, history, msg) => {
     this.setState({ email, login: true });
     history.push("/home");
-    this.notify("¡Bienvenido!");
+    this.notify(msg);
   };
-
-  // guardar e-mail després de login i redirigir a home page
-  onRegister = (history) => {
-    history.push("/users/login");
-    this.notify("¡Cuenta creada correctamente, ya puedes iniciar tu sesión!");
-  };
-
-  notify = (text) => toast.warning(text);
 
   // eliminar de localStorage i de l'estat email i token
   logOut = () => {
@@ -81,13 +75,13 @@ export default class App extends Component {
             <Route path="/ofertas" component={Filtros} />
             <Route
               path="/users/login"
-              render={(props) => <LogIn onLogin={this.onLogin} {...props} />}
+              render={(props) => (
+                <LogIn onLogin={this.onLogin} notify={this.notify} {...props} />
+              )}
             />
             <Route
               path="/register"
-              render={(props) => (
-                <Register onRegister={this.onRegister} {...props} />
-              )}
+              render={(props) => <Register notify={this.notify} {...props} />}
             />
             <Route path="/contacto" component={Contact} />
             <Route path="/home" component={Home} />

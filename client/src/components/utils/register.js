@@ -39,16 +39,18 @@ export default class Register extends Component {
 
   addUsers = () => {
     const { email, password, repeatPassword } = this.state;
-    if (this.validateEmail(email)) {
-      if (password === repeatPassword) {
-        apiRegister.postUser(email, password).then((response) => {
-          // console.log(response.data);
-        });
-        this.getUsers();
-        this.props.onRegister(this.props.history);
-      } else {
-        this.setState({ alerta: true });
-      }
+    if (this.validateEmail(email) && password === repeatPassword) {
+      apiRegister.postUser(email, password).then((response) => {
+        this.props.notify(response.data.msg);
+        if (response.data.msg !== "¡Usuario ya registrado!") {
+          this.props.history.push("/users/login");
+        }
+      });
+      this.getUsers();
+    } else if (!this.validateEmail(email)) {
+      this.setState({ alertaEmails: true });
+    } else if (password !== repeatPassword) {
+      this.setState({ alertaContraseñas: true });
     }
   };
 

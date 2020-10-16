@@ -30,12 +30,8 @@ export default class Login extends Component {
     })
       .then((response) => {
         localStorage.setItem("token", response.data.token);
-        // console.log(response);
-        // this.props.history.push("/home");
-        // // console.log(this.props);
         localStorage.setItem("email", email);
-        // console.log(response);
-        this.props.onLogin(email, this.props.history);
+        this.props.onLogin(email, this.props.history, response.data.msg);
       })
       .catch((error) => {
         console.log(error);
