@@ -26,9 +26,7 @@
 #### FALTA FER:
 
 - FILTRES un cop seleccionats, si canviem l'ordre, no es refresca l'ordre
-
-- Arreglar NAVBAR logo resize SVG
-- Arreglar SPONSORS logo resize SVG
+- Styiling REGÍSTRATE
 
 - Acabar OFERTAS:
   - Paginate: (`https://www.thatsoftwaredude.com/content/6125/how-to-paginate-through-a-collection-in-javascript`)

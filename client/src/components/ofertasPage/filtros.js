@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useLocation, useHistory } from "react-router-dom";
 import baseDades from "../utils/baseDades";
 import Ofertas from "./ofertas";
 import "./filtros.css";
@@ -10,6 +11,8 @@ export default function Filtros() {
   let [contratos, setContratos] = useState([]);
   let [filtroSectores, setFiltroSectores] = useState([]);
   let [filtroContratos, setFiltroContratos] = useState([]);
+  let history = useHistory();
+
 
   //* SELECCIONAR TODO
   const seleccionarTodo = (e) => {
@@ -177,7 +180,7 @@ export default function Filtros() {
       <div className="resultados">
         {/* OFERTAS */}
         <Ofertas
-          baseDades={baseDades}
+                  history={history}
           filtroSectores={filtroSectores}
           filtroContratos={filtroContratos}
         />

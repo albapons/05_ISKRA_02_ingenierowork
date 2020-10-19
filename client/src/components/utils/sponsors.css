@@ -7,6 +7,7 @@
 
 .box {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -15,22 +16,27 @@
   margin: 15px 0px;
 }
 
-.sponsorsLogo {
-  max-width: 50vw;
+.sponsorsLogo div {
+  max-width: 200px;
+  display: flex !important;
+  justify-content: center;
 }
 
 .square {
-  width: 300px;
-  height: 200px;
+  width: 190px;
+  height: 130px;
   background-color: gray;
 }
 
 /* A partir de M */
 @media all and (min-width: 768px) {
-  .sponsors {
-    padding: 60px 12%;
+  .square {
+    width: 220px;
   }
   .box {
     align-items: center;
+  }
+  .sponsorsLogo div {
+    max-width: 160px;
   }
 }
