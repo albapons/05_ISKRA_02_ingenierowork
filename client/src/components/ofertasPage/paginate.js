@@ -60,7 +60,7 @@ export default class provaPaginate extends Component {
   };
 
   loadList = (e) => {
-    const { currentPage, numberOfPages } = this.state;
+    const { currentPage, numberOfPages, pageList } = this.state;
     // Si hem clicat un botó, canviar de pàgina sinó per defecte, pàgina 1
     e && this.setState({ currentPage: parseInt(e.target.id) });
 
@@ -69,14 +69,16 @@ export default class provaPaginate extends Component {
     // window.location.hash = `page=${this.state.currentPage}`;
 
     // Arrow PREVIOUS, activa / desactiva
-    currentPage === 1
-      ? document.getElementById("arrowP").classList.add("disabled")
-      : document.getElementById("arrowP").classList.remove("disabled");
+    document.getElementById("arrowP") &&
+      (currentPage === 1
+        ? document.getElementById("arrowP").classList.add("disabled")
+        : document.getElementById("arrowP").classList.remove("disabled"));
 
     // Arrow NEXT, activa / desactiva
-    currentPage === numberOfPages
-      ? document.getElementById("arrowN").classList.add("disabled")
-      : document.getElementById("arrowN").classList.remove("disabled");
+    document.getElementById("arrowN") &&
+      (currentPage === numberOfPages
+        ? document.getElementById("arrowN").classList.add("disabled")
+        : document.getElementById("arrowN").classList.remove("disabled"));
 
     // Definir número de pàgines que tindrem
     this.setState({
@@ -89,7 +91,6 @@ export default class provaPaginate extends Component {
     var begin = (this.state.currentPage - 1) * this.state.numberPerPage;
     var end = begin + this.state.numberPerPage;
     this.setState({ pageList: this.props.newBaseDades.slice(begin, end) });
-
     // console.log("url");
     // console.log(
     //   "number is " + this.props.newBaseDades.length / this.state.numberPerPage
@@ -101,12 +102,12 @@ export default class provaPaginate extends Component {
     const { pageList } = this.state;
 
     return (
-      <div>
+      <div className="pageList">
         {pageList.map((e) => (
           <div className="oferta" key={e.id}>
             <div className="row">
               <div className="col">
-                <div className="title3 blue">{e.id}</div>
+                {/* <div className="title3 blue">{e.id}</div> */}
                 <div className="title3 blue">{e.puesto}</div>
                 <div className="font-weight-bold subtitle2">{e.lugar}</div>
               </div>
@@ -139,39 +140,22 @@ export default class provaPaginate extends Component {
           </div>
         ))}
 
-        <div className="buttonsPagination">
-          <span onClick={(e) => this.previousPage(e)}>
-            <i className="fas fa-caret-left blue fa-3x mr-4" id="arrowP" />
-          </span>
-          {this.displayButtons()}
-          {/* <button
-            className="buttonPagination"
-            id="1"
-            onClick={(e) => this.check(e)}
-          >
-            1
-          </button>
-          <button
-            className="buttonPagination"
-            id="2"
-            onClick={(e) => this.check(e)}
-          >
-            2
-          </button>
-          <button
-            className="buttonPagination"
-            id="3"
-            onClick={(e) => this.check(e)}
-          >
-            3
-          </button> */}
-          <span onClick={(e) => this.nextPage(e)}>
-            <button
-              className="fas fa-caret-right blue fa-3x ml-4"
-              id="arrowN"
-            />
-          </span>
-        </div>
+        {pageList.length !== 0 ? (
+          <div className="buttonsPagination">
+            <span onClick={(e) => this.previousPage(e)}>
+              <i className="fas fa-caret-left blue fa-3x mr-4" id="arrowP" />
+            </span>
+            {this.displayButtons()}
+            <span onClick={(e) => this.nextPage(e)}>
+              <button
+                className="fas fa-caret-right blue fa-3x ml-4"
+                id="arrowN"
+              />
+            </span>
+          </div>
+        ) : (
+          <div className="not title4thin">No results to show</div>
+        )}
       </div>
     );
   }

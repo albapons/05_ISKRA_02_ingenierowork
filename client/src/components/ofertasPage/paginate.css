@@ -1,3 +1,14 @@
+.pageList {
+  min-height: 700px;
+}
+
+.not {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  color: #1697ef;
+}
+
 .buttonsPagination {
   display: flex;
   flex-direction: row;

@@ -40,6 +40,13 @@ export default function Ofertas({ filtroSectores, filtroContratos }) {
     setOrden(orden);
 
     api.getList(search).then((response) => {
+      response.data.length === 0
+        ? document
+            .getElementsByTagName("select")[0]
+            .setAttribute("disabled", "disabled")
+        : document
+            .getElementsByTagName("select")[0]
+            .removeAttribute("disabled", "disabled");
       setNewBaseDades(response.data);
     });
   };

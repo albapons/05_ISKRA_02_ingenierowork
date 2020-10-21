@@ -26,5 +26,4 @@
 #### FALTA FER:
 
 - FILTRES un cop seleccionats, si canviem l'ordre, no es refresca l'ordre
-- REGÍSTRATE styling
 - Paginate: afegir URL amb nº de pàgina
