@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import baseDades from "../utils/baseDades";
 import Ofertas from "./ofertas";
 import "./filtros.css";
@@ -12,7 +12,6 @@ export default function Filtros() {
   let [filtroSectores, setFiltroSectores] = useState([]);
   let [filtroContratos, setFiltroContratos] = useState([]);
   let history = useHistory();
-
 
   //* SELECCIONAR TODO
   const seleccionarTodo = (e) => {
@@ -108,7 +107,7 @@ export default function Filtros() {
                 }
               })}
               {sectores.sort().map((e) => (
-                <div key={e.i}>
+                <div key={e.id}>
                   <input
                     className="opciones1"
                     type="checkbox"
@@ -180,7 +179,7 @@ export default function Filtros() {
       <div className="resultados">
         {/* OFERTAS */}
         <Ofertas
-                  history={history}
+          history={history}
           filtroSectores={filtroSectores}
           filtroContratos={filtroContratos}
         />

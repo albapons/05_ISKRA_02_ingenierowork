@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { useLocation, useHistory } from "react-router-dom";
 
 import React, { useEffect, useState } from "react";
-import Paginate from "./provaPaginate";
+import Paginate from "./paginate";
 
 import api from "../utils/api/api";
 import "./filtros.css";
@@ -76,7 +76,7 @@ export default function Ofertas({ filtroSectores, filtroContratos }) {
             </div>
           </div>
 
-          <Paginate newBaseDades={newBaseDades} />
+          <Paginate newBaseDades={newBaseDades} history={history} />
         </div>
       </Router>
     </div>

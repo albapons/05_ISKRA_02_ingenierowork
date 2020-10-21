@@ -36,28 +36,6 @@
   margin: 5px 0px;
 }
 
-/* PAGINATION */
-
-.buttonsPagination {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.buttonPagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #1697ef;
-  color: white;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  margin: 0px 40px;
-  border: none;
-}
-
 /* A partir de M */
 @media all and (min-width: 768px) {
   .ofertas {

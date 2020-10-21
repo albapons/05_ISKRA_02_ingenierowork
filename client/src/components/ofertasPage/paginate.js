@@ -1,100 +1,107 @@
 import React, { Component } from "react";
-import "./filtros.css";
+import "./paginate.css";
 
 export default class provaPaginate extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pageList: [], // les ofertes que es mostraran en cada llista
-      currentPage: 1, // A quina pàgina estem
-      numberPerPage: 5, // Nº d'ofertes per pàgina
-      numberOfPages: 1, // Total number of pages
+      pageList: [],
+      currentPage: 1,
+      numberPerPage: 5,
+      numberOfPages: 0,
     };
   }
 
-  componentDidMount = () => {
+  componentDidMount = (prevProps, prevState) => {
     this.loadList();
   };
 
   // To refresh the props when they're ready
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.newBaseDades !== this.props.newBaseDades) {
+      // Mostrar pàgina 1
       this.setState({ currentPage: 1 });
+      // Carregar pàgina
       this.loadList();
     }
     prevState.currentPage !== this.state.currentPage && this.loadList();
   }
 
-  // Carrega quines ofertes s'han de mostrar
-  loadList = () => {
-    // Definir número de pàgines que tindrem
-    this.setState({
-      numberOfPages: Math.ceil(
-        this.props.newBaseDades.length / this.state.numberPerPage
-      ),
-    });
-    //Definir origen i fi i filtrar
-    var begin = (this.state.currentPage - 1) * this.state.numberPerPage;
-    var end = begin + this.state.numberPerPage;
-    this.setState({ pageList: this.props.newBaseDades.slice(begin, end) });
-    // this.check();       // determines the states of the pagination buttons
-  };
-
-  // Display buttons
+  // Display buttons en funció del nº de pàgines que necessitem
   displayButtons = () => {
     let buttons = [];
-
-    for (let i = 1; i < this.state.numberOfPages; i++) {
+    for (let i = 0; i < this.state.numberOfPages; i++) {
       buttons.push(
         <button
+          key={i + 1}
           className="buttonPagination"
-          id={i}
-          onClick={(e) => this.check(e)}
+          id={i + 1}
+          onClick={(e) => this.loadList(e)}
         >
-          {i}
+          {i + 1}
         </button>
       );
     }
     return buttons;
   };
 
-  //  Funcions per cada botó
   previousPage = () => {
-    this.state.currentPage -= 1;
+    if (this.state.currentPage > 1) {
+      this.setState({ currentPage: (this.state.currentPage -= 1) });
+    }
     this.loadList();
-    //! actualitzar query amb nº de pàgina
   };
 
   nextPage = () => {
-    this.state.currentPage += 1;
+    if (this.state.currentPage < this.state.numberOfPages) {
+      this.setState({ currentPage: (this.state.currentPage += 1) });
+    }
     this.loadList();
-    //! actualitzar query amb nº de pàgina
   };
 
-  //! Canvia l'estat dels botons
-  check = (e) => {
+  loadList = (e) => {
     const { currentPage, numberOfPages } = this.state;
-    // console.log(e.target.id);
-    this.setState({ currentPage: e.target.id });
-    this.loadList();
+    // Si hem clicat un botó, canviar de pàgina sinó per defecte, pàgina 1
+    e && this.setState({ currentPage: parseInt(e.target.id) });
 
-    // Si currentPage === 1 botó previous disabled
-    document.getElementById(e.target.id).disabled =
-      currentPage == 1 ? true : false;
-    // Si currentPage === numberOfPages botó next disabled
-    document.getElementById(e.target.id).disabled =
-      currentPage == numberOfPages ? true : false;
-    //! Si currentPage === e.target.id aplicar styling botó actiu
+    //! Actualitzar URL
+    // console.log(window.location.href);
+    // window.location.hash = `page=${this.state.currentPage}`;
+
+    // Arrow PREVIOUS, activa / desactiva
+    currentPage === 1
+      ? document.getElementById("arrowP").classList.add("disabled")
+      : document.getElementById("arrowP").classList.remove("disabled");
+
+    // Arrow NEXT, activa / desactiva
+    currentPage === numberOfPages
+      ? document.getElementById("arrowN").classList.add("disabled")
+      : document.getElementById("arrowN").classList.remove("disabled");
+
+    // Definir número de pàgines que tindrem
+    this.setState({
+      numberOfPages: Math.ceil(
+        this.props.newBaseDades.length / this.state.numberPerPage
+      ),
+    });
+
+    // Definir origen i fi, i filtrar
+    var begin = (this.state.currentPage - 1) * this.state.numberPerPage;
+    var end = begin + this.state.numberPerPage;
+    this.setState({ pageList: this.props.newBaseDades.slice(begin, end) });
+
+    // console.log("url");
+    // console.log(
+    //   "number is " + this.props.newBaseDades.length / this.state.numberPerPage
+    // );
+    // console.log("current is " + this.state.currentPage);
   };
 
   render() {
-    const { newBaseDades } = this.props;
     const { pageList } = this.state;
 
     return (
       <div>
-        {console.log(pageList)}
-
         {pageList.map((e) => (
           <div className="oferta" key={e.id}>
             <div className="row">
@@ -134,7 +141,7 @@ export default class provaPaginate extends Component {
 
         <div className="buttonsPagination">
           <span onClick={(e) => this.previousPage(e)}>
-            <i className="fas fa-caret-left blue fa-3x mr-4" />
+            <i className="fas fa-caret-left blue fa-3x mr-4" id="arrowP" />
           </span>
           {this.displayButtons()}
           {/* <button
@@ -159,7 +166,10 @@ export default class provaPaginate extends Component {
             3
           </button> */}
           <span onClick={(e) => this.nextPage(e)}>
-            <i className="fas fa-caret-right blue fa-3x ml-4" />
+            <button
+              className="fas fa-caret-right blue fa-3x ml-4"
+              id="arrowN"
+            />
           </span>
         </div>
       </div>
